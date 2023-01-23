@@ -1,0 +1,26 @@
+{
+  "name": "cypress-framework",
+  "version": "1.0.0",
+  "description": "Cypress project for beginners",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "cypress:open": "cypress open",
+    "cypress:runDefault": "cypress run --spec cypress/e2e/2-advanced-examples/actions.cy.js",
+    "cypress:runChrome": "cypress run --browser chrome --spec cypress/e2e/2-advanced-examples/Assertions-Practice/AssertionQAtoolsAgain.cy.js",
+    "cypress:runChromeHeadless": "cypress run --headless --browser chrome --spec cypress/e2e/2-advanced-examples/Assertions-Practice/AssertionQAtoolsAgain.cy.js"
+  },
+  "keywords": [
+    "e2e",
+    "tests",
+    "cypress",
+    "automation",
+    "frameworks"
+  ],
+  "author": "ABK",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.2.0",
+    "cypress-mochawesome-reporter": "^3.2.3"
+  }
+}
