@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 hello this is Bilal
 This is Fix B
-=======
 hello this is Basit
 This is conflict
->>>>>>> 5ff6172313bf4dcbaf39b1a9ffdf6094999284c2
