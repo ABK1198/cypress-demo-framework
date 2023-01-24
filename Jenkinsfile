@@ -36,9 +36,7 @@ pipeline{
 
     post('Declarative post'){
         always{
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false,
-            reportDir: 'C:\\Users\\TK-LPT-197\\Desktop\\cypress\\cypress-demo-framework\\cypress\\reports',
-            reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\example\\cypress\\reports\\html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }   
 }
