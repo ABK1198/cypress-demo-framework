@@ -3,11 +3,11 @@ pipeline{
     agent any;
 
 
-    // parameters{
-    //     string(name: 'SPEC', defaultValue: "cypress/e2e/**/**", description:"Description...")
-    //     choice(name: 'BROWSER', choices: ['chrome','edge','firefox'],description:"DescriptionBS...")
+    parameters{
+        string(name: 'SPEC', defaultValue: "cypress/e2e/**/**", description:"Description...")
+        choice(name: 'BROWSER', choices: ['chrome','edge','firefox'],description:"DescriptionBS...")
 
-    // }
+    }
 
     stages{
         stage('build app'){
@@ -19,7 +19,7 @@ pipeline{
         stage('Testing'){
             steps{
                 bat "npm i"
-                bat "npm run cypress:open"
+                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }    
         }
         stage('deploy'){
