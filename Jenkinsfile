@@ -49,7 +49,7 @@ pipeline{
            }
         }
     }
-}
+
     post('Declarative post'){
         always{
 
@@ -65,4 +65,4 @@ pipeline{
         }
     }   
 
-    
+}    
