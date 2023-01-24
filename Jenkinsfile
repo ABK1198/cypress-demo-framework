@@ -33,7 +33,7 @@ pipeline{
            }
         }
     }
-}
+
     post('Declarative post'){
         always{
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true,
@@ -41,3 +41,5 @@ pipeline{
             reportTitles: '', useWrapperFileDirectly: true])
         }
     }   
+}
+    
