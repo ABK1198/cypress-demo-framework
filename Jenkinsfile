@@ -1,6 +1,6 @@
 pipline{
 
-    agent any
+    agent any;
 
 
     parameters{
@@ -28,7 +28,7 @@ pipline{
            }
         }
     }
-
+}
     post{
         always{
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true,
@@ -36,4 +36,3 @@ pipline{
             reportTitles: '', useWrapperFileDirectly: true])
         }
     }   
-}
