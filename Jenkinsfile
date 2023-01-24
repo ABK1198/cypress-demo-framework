@@ -49,7 +49,7 @@ pipeline{
            }
         }
     }
-
+}
     post('Declarative post'){
         always{
 
@@ -64,5 +64,5 @@ pipeline{
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\example\\cypress\\reports\\html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }   
-}
+
     
