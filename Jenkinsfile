@@ -9,6 +9,10 @@ pipeline{
 
     // }
 
+    options{
+        ansiColor('xterm')
+    }
+
     stages{
         stage('build app'){
            steps{
