@@ -1,15 +1,3 @@
-import groovy.json.JsonOutput
-
-def COLOR_MAP = [
-    'SUCCESS': 'good',
-    'FAILURE': 'danger',
-]
-
-def getBuildUser(){
-    return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
-}
-
-
 pipeline{
 
     agent any;
@@ -51,18 +39,25 @@ pipeline{
     }
 
     post('Declarative post'){
-        always{
+        // always{
 
-            script{
-                BUILD_USER = getBuildUser()
-            }
+        //     script{
+        //         BUILD_USER = getBuildUser()
+        //     }
 
-            slackSend channel: '#jenkins-messages',
-                color: COLOR_MAP[currentBuild.currentResult],
-                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n Tests:${SPEC} executed at ${BROWSER}"   
+        //     slackSend channel: '#jenkins-messages',
+        //         color: COLOR_MAP[currentBuild.currentResult],
+        //         message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n Tests:${SPEC} executed at ${BROWSER}"   
 
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\example\\cypress\\reports\\html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-        }
+        //     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\example\\cypress\\reports\\html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+        // }
+    success {
+        slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+    }
+        failure {
+        slackSend failOnError:true message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+    }
+
     }   
 
 }    
