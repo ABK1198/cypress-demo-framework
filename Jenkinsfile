@@ -10,7 +10,7 @@ pipeline{
     }
 
     stages{
-        stage('Deploying'){
+        stage('build app'){
            steps{
               echo "Building the application" 
            }
@@ -22,7 +22,7 @@ pipeline{
                 bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }    
         }
-        stage('Deploying'){
+        stage('deploy'){
             steps{
                echo "Building the application" 
            }
