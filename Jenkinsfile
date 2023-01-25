@@ -8,7 +8,7 @@ pipeline{
 
 
      parameters{
-         string(name: 'SPEC', defaultValue: "cypress/e2e/2-advanced-examples/Assertions-Practice", description:"Description...")
+         string(name: 'SPEC', defaultValue: "cypress/e2e/Cypress Refresh", description:"Description...")
          choice(name: 'BROWSER', choices: ['chrome','edge','firefox'],description:"DescriptionBS...")
 
      }

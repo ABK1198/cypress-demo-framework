@@ -110,3 +110,19 @@ Cypress.Commands.add('logINagain',function(){
         cy.get('.btn-primary').eq(2).click();
     })
 })
+
+Cypress.Commands.add('LOUGIN',function(){
+    cy.fixture('fixtures_Again/ToolsQALogin').then((LogINinfo)=>{
+
+        cy.get('#userName').type(LogINinfo.UserName)
+        cy.get('#password').type(LogINinfo.Password)
+        cy.get('.btn-primary').eq(0).click()
+    })
+})
+
+Cypress.Commands.add('LOUGOUT',function(){
+    cy.fixture('fixtures_Again/ToolsQALogin').then((LogOUTinfo)=>{
+
+        cy.get('#submit').eq(0).click()
+    })
+})
