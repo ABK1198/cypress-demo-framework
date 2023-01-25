@@ -4,7 +4,7 @@ pipeline{
 
 
     parameters{
-        string(name: 'SPEC', defaultValue: "cypress/e2e/Cypress Refresh/Cypresslocation.cy.js",description:"Location Given Here")
+        string(name: 'SPEC', defaultValue: "cypress/e2e/CypressRefresh/Assertion_commands.cy.js",description:"Location Given Here")
         choice(name: 'BROWSER', choices:['chrome','edge'],description:"Browser Choice Given here")
     }
 
