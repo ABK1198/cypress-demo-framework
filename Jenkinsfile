@@ -34,8 +34,10 @@ pipeline {
     }
 
     post('Post HTML files: '){
+        always{
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false,
         keepAll: true, reportDir: '', reportFiles: 'index.html',
         reportName: 'HTML Report', reportTitles: 'ABK Report', useWrapperFileDirectly: true])
+        }
     }
 }   
