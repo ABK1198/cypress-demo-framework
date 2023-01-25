@@ -10,27 +10,16 @@ describe('API TESTING',()=>{
     })
 
     it('Status Check',()=>{
-        cy.api('https://securepubads.g.doubleclick.net/pagead/ppub_config?ippd=demoqa.com')
+        cy.api('https://demoqa.com/books')
         .its('status').should('eq',200);
     })
 
     it('checking for headers',()=>{
 
-        cy.api('https://securepubads.g.doubleclick.net/pagead/ppub_config?ippd=demoqa.com')
+        cy.api('https://demoqa.com/books')
         .its('headers')
-        .its('content-type')
-        .should('include','application/json; charset=UTF-8')
-
-        cy.api('https://securepubads.g.doubleclick.net/pagead/ppub_config?ippd=demoqa.com')
-        .its('headers')
-        .its('content-disposition')
-        .should('include','attachment; filename="f.txt"')
-
-        cy.api('https://securepubads.g.doubleclick.net/pagead/ppub_config?ippd=demoqa.com')
-        .its('headers')
-        .its('x-content-type-options')
-        .should('include','nosniff')
-
+        .its('connection')
+        .should('include','keep-alive')
 
 
     });
