@@ -2,13 +2,13 @@ pipeline{
 
     agent any;
 
-    environment{
-        BUILD_USER = ''
-    }
+    // environment{
+    //     BUILD_USER = ''
+    // }
 
 
      parameters{
-         string(name: 'SPEC', defaultValue: "cypress/e2e/Cypress Refresh", description:"Description...")
+         string(name: 'SPEC', defaultValue: "cypress\Cypress Refresh", description:"Description...")
          choice(name: 'BROWSER', choices: ['chrome','edge','firefox'],description:"DescriptionBS...")
 
      }
