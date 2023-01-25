@@ -4,8 +4,8 @@ pipeline{
 
 
     parameters{
-        string(name: 'Location', defaultValue: "cypress/e2e/Cypress Refresh/Cypresslocation.cy.js",description:"Location Given Here")
-        choice(name: 'Browser', choices:['chrome','edge'],description:"Browser Choice Given here")
+        string(name: 'SPEC', defaultValue: "cypress/e2e/Cypress Refresh/Cypresslocation.cy.js",description:"Location Given Here")
+        choice(name: 'BROWSER', choices:['chrome','edge'],description:"Browser Choice Given here")
     }
 
     options{
@@ -22,7 +22,7 @@ pipeline{
          stage('Testing') {
             steps {
                 bat "npm i"
-                bat "npx cypress run --browser ${Browser} --spec ${Location}"
+                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }
         }
         stage('deploy'){
