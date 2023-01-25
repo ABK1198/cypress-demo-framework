@@ -1,10 +1,10 @@
 pipeline {
 
-    agent any;
+    agent any
 
 
     parameters{
-        string(name: 'Location', defaultValue: "cypress/e2e/Cypress Refresh/ToolsQA_Fixtures.cy.js",description:"Location Given Here")
+        string(name: 'Location', defaultValue: "cypress/e2e/Cypress Refresh/Cypresslocation.cy.js",description:"Location Given Here")
         choice(name: 'Browser', choices:['chrome','edge'],description:"Browser Choice Given here")
     }
 
