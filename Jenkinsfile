@@ -2,9 +2,9 @@ pipeline{
 
     agent any;
 
-    // environment{
-    //     BUILD_USER = ''
-    // }
+    environment{
+        BUILD_USER = ''
+    }
 
 
      parameters{
