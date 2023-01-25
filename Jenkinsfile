@@ -1,4 +1,4 @@
-pipeline {
+pipeline{
 
     agent any
 
@@ -19,13 +19,12 @@ pipeline {
             }
         }
 
-        stage('Testing'){
-            steps{
+         stage('Testing') {
+            steps {
                 bat "npm i"
-                bat "npx cypress run --browser ${Browser} --spec ${SPEC}"
+                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }
         }
-
         stage('deploy'){
             steps{
                 echo"deploying"
