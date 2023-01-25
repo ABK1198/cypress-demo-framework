@@ -1,62 +1,41 @@
-pipeline{
+Pipeline {
 
     agent any;
 
-    environment{
-        BUILD_USER = ''
+
+    parameters{
+        string(name: 'Location', defaultValue: "cypress/e2e/Cypress Refresh/ToolsQA_Fixtures.cy.js",description:"Location Given Here")
+        choice(name: 'Browser', choices:['chrome','edge'],description:"Browser Choice Given here")
     }
-
-
-     parameters{
-         string(name: 'SPEC', defaultValue: "cypress\Cypress Refresh", description:"Description...")
-         choice(name: 'BROWSER', choices: ['chrome','edge','firefox'],description:"DescriptionBS...")
-
-     }
 
     options{
         ansiColor('xterm')
     }
 
     stages{
-        stage('build app'){
-           steps{
-              echo "Building the application" 
-           }
+        stage('First Stage '){
+            steps{
+                echo"First Stage Test"
+            }
         }
 
         stage('Testing'){
             steps{
                 bat "npm i"
-                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
-              // bat "npx cypress run --browser chrome --spec cypress/e2e/**/**"
-            }    
+                bat "npx cypress run --browser ${Browser} --spec ${SPEC}"
+            }
         }
+
         stage('deploy'){
             steps{
-               echo "Building the application" 
-           }
+                echo"deploying"
+            }
         }
     }
 
-    post('Declarative post'){
-        // always{
-
-        //     script{
-        //         BUILD_USER = getBuildUser()
-        //     }
-
-        //     slackSend channel: '#jenkins-messages',
-        //         color: COLOR_MAP[currentBuild.currentResult],
-        //         message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n Tests:${SPEC} executed at ${BROWSER}"   
-
-        //     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\example\\cypress\\reports\\html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-        // }
-    success {
-        slackSend channel: '#jenkins-messages', color: 'good', message: "Build passed: ${env.JOB_NAME} ${env.BUILD_NUMBER}", tokenCredentialId: 'a7412c0a-33e6-4ab8-85c0-a5a4ed8ff948'
+    post('Post HTML files: '){
+        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false,
+        keepAll: true, reportDir: '', reportFiles: 'index.html',
+        reportName: 'HTML Report', reportTitles: 'ABK Report', useWrapperFileDirectly: true])
     }
-    failure {
-    slackSend channel: '#jenkins-messages', color: 'bad', failOnError: true, message: 'Build failed', tokenCredentialId: 'a7412c0a-33e6-4ab8-85c0-a5a4ed8ff948'
-     }
-    }   
-
-}    
+}   
