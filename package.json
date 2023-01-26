@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "cypress:open": "cypress open",
-    "cypress:runDefault": "cypress run --spec cypress/e2e/2-advanced-examples/actions.cy.js",
+    "cypress:runDefault": "cypress run --spec cypress/e2e/2-advanced-examples/Assertions-Practice/AssertionsQAtools.cy.js",
     "cypress:Chrome": "cypress run --browser chrome --spec cypress/e2e/2-advanced-examples/Assertions-Practice/AssertionQAtoolsAgain.cy.js",
     "cypress:runChromeHeadless": "cypress run --headless --browser chrome --spec cypress/e2e/2-advanced-examples/Assertions-Practice/AssertionQAtoolsAgain.cy.js",
     "cypress:edge": "cypress run --browser edge --spec cypress/e2e/2-advanced-examples/Assertions-Practice/AssertionQAtoolsAgain.cy.js"
